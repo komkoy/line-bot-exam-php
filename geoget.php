@@ -1,29 +1,76 @@
-<!DOCTYPE html>
-<html>
-<body>
+<!DOCTYPE html> 
+<html lang="en-US"> 
+<head> 
+<title>SPACE-O :: Get Visitor Location using HTML5</title> 
 
-<p>Click the button to get your coordinates.</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
 
-<button onclick="getLocation()">Try It</button>
+<script> 
 
-<p id="demo"></p>
+$(document).ready(function(){ 
 
-<script>
-var x = document.getElementById("demo");
+    if (navigator.geolocation) { 
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
+        navigator.geolocation.getCurrentPosition(showLocation); 
 
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
-}
-</script>
+    } else { 
 
-</body>
+        $('#location').html('Geolocation is not supported by this browser.'); 
+
+    } 
+
+}); 
+
+function showLocation(position) { 
+
+    var latitude = position.coords.latitude; 
+
+var longitude = position.coords.longitude; 
+
+     
+
+$.ajax({ 
+
+type:'POST', 
+
+url:'getLocation.php', 
+
+data:'latitude='+latitude+'&longitude='+longitude, 
+
+success:function(msg){ 
+
+            if(msg){ 
+
+               $("#location").html(msg); 
+
+            }else{ 
+
+                $("#location").html('Not Available'); 
+
+            } 
+
+} 
+
+}); 
+
+} 
+
+</script> 
+
+<style type="text/css"> 
+
+p{ border: 2px dashed #009755; width: auto; padding: 10px; font-size: 18px; border-radius: 5px; color: #FF7361;} 
+
+    span.label{ font-weight: bold; color: #000;} 
+
+</style> 
+
+</head> 
+
+<body> 
+
+    <p><span class="label">Your Location:</span> <span id="location"></span></p> 
+
+</body> 
+
 </html>
