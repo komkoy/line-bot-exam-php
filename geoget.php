@@ -17,6 +17,7 @@
 				window.location="http://www.earthquake.tmd.go.th/inform.php?getlat="+location.latitude+"&getlong="+location.longitude;
             }, function() {
                 alert('มีปัญหาในการตรวจหาตำแหน่ง');
+				window.location.href = "window-location.html";
             });
         } else {
             alert('เบราเซอร์นี้ไม่รองรับ geolocation');
