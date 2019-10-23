@@ -13,7 +13,7 @@
             // ตรงนี้คือรองรับ geolocation
             navigator.geolocation.getCurrentPosition(function(location) {
                 var location = location.coords;
-                $("#geo_data").html('lat: '+location.latitude+'<br />long: '+location.longitude+'<br />');
+//                $("#geo_data").html('lat: '+location.latitude+'<br />long: '+location.longitude+'<br />');
 				window.location="http://www.earthquake.tmd.go.th/inform-submit.html?getlat="+location.latitude+"&getlng="+location.longitude;
             }, function() {
                 alert('มีปัญหาในการตรวจหาตำแหน่ง');
