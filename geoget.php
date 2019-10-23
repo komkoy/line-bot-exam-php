@@ -2,12 +2,10 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>geolocation</title>
+        <title>แจ้งข้อมูลรู้สึกถึงแรงสั่นสะเทือน - กองเฝ้าระวังแผ่นดินไหว</title>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
     </head>
     <body>
-        ตำแหน่งของฉัน:
-        <div id="geo_data"></div>
         <script type="text/javascript">
         if ( navigator.geolocation ) {
             // ตรงนี้คือรองรับ geolocation
