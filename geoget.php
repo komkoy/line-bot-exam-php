@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>ทดสอบ geolocation</title>
+        <title>geolocation</title>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
     </head>
     <body>
@@ -14,6 +14,7 @@
             navigator.geolocation.getCurrentPosition(function(location) {
                 var location = location.coords;
                 $("#geo_data").html('lat: '+location.latitude+'<br />long: '+location.longitude+'<br />');
+				window.location="http://www.earthquake.tmd.go.th/inform.php?getlat="+location.latitude+"&getlong="+location.longitude;
             }, function() {
                 alert('มีปัญหาในการตรวจหาตำแหน่ง');
             });
