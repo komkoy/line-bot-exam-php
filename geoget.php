@@ -14,13 +14,14 @@
             navigator.geolocation.getCurrentPosition(function(location) {
                 var location = location.coords;
                 $("#geo_data").html('lat: '+location.latitude+'<br />long: '+location.longitude+'<br />');
-				window.location="http://www.earthquake.tmd.go.th/inform.php?getlat="+location.latitude+"&getlong="+location.longitude;
+				window.location="http://www.earthquake.tmd.go.th/inform-submit.html?getlat="+location.latitude+"&getlng="+location.longitude;
             }, function() {
                 alert('มีปัญหาในการตรวจหาตำแหน่ง');
-				window.location.href = "window-location.html";
+				window.location.href = "http://www.earthquake.tmd.go.th/inform-submit.html";
             });
         } else {
             alert('เบราเซอร์นี้ไม่รองรับ geolocation');
+			window.location.href = "http://www.earthquake.tmd.go.th/inform-submit.html";
         }
         </script>
     </body>
